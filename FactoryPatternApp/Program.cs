@@ -7,14 +7,17 @@ namespace FactoryPatternApp
         static void Main(string[] args)
         {
             //Ask the user for the phone they wish to create
-            Console.WriteLine("What kind of phone do you want to create?");
-            string userPhone = Console.ReadLine();
+            Console.WriteLine("Welcome to Melga's Luxury Fragrance. Pick the choice of fragrance you want in your cart.");
+            Console.WriteLine("Please type gourmand for gourmand, fruity for fruity and floral for floral.");
+           var userChoice = Console.ReadLine();
+            IFragrance fragranceInstance = FragranceFactory.GetFragrance(userChoice);
+            fragranceInstance.FragranceStatement();
+            
 
             //Choose the correct type of phone to create through the factory method that implements the ICallable interface
-            ICallable phone = PhoneFactory.GetPhone(userPhone);
-            phone.Build();
-            Console.ReadLine();
-
+            //ICallable phone = PhoneFactory.GetPhone(userPhone);
+            //phone.Build();
+            //Console.ReadLine();
 
 
             //***********Example of bad practice************//
